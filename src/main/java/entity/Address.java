@@ -54,22 +54,6 @@ public class Address {
         this.postCode = postCode;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Address address = (Address) o;
-        return id == address.id &&
-                Objects.equals(country, address.country) &&
-                Objects.equals(city, address.city) &&
-                Objects.equals(street, address.street) &&
-                Objects.equals(postCode, address.postCode);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, country, city, street, postCode);
-    }
 
     @Override
     public String toString() {

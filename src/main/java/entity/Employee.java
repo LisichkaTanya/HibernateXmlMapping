@@ -1,7 +1,7 @@
 package entity;
 
 import java.sql.Date;
-import java.util.Objects;
+import java.util.Set;
 
 public class Employee {
 
@@ -9,7 +9,8 @@ public class Employee {
     private String firstName;
     private String lastName;
     private Date birthday;
-    private long addressID;
+    private Address address;
+    private Set<Project> projects;
 
     public Employee() {
 
@@ -47,29 +48,20 @@ public class Employee {
         this.birthday = birthday;
     }
 
-    public long getAddressID() {
-        return addressID;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setAddressID(long addressID) {
-        this.addressID = addressID;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return Objects.equals(id, employee.id) &&
-                Objects.equals(firstName, employee.firstName) &&
-                Objects.equals(lastName, employee.lastName) &&
-                Objects.equals(birthday, employee.birthday) &&
-                Objects.equals(addressID, employee.addressID);
+    public Set<Project> getProjects() {
+        return projects;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, firstName, lastName, birthday, addressID);
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
     }
 
     @Override
@@ -79,8 +71,7 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", birthday=" + birthday +
-                ", addressID=" + addressID +
+                ", address=" + address +
                 '}';
     }
-
 }
